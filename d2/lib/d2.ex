@@ -200,4 +200,29 @@ defmodule D2 do
   def shipComputer(intcodeProgram) do
     Enum.join(process_instructions(createInstructionList(intcodeProgram)), ",")
   end
+
+  def shipComputerOutput(intcodeProgram) do
+    hd(process_instructions(createInstructionList(intcodeProgram)))
+  end
+
+  def searchForOutput(target, intcodeProgramString) do
+    intcodeProgram = createInstructionList(intcodeProgramString)
+    Enum.each(0..99, fn noun ->
+      Enum.each(0..99, fn verb ->
+        searchForOutput(target, intcodeProgram, noun, verb)
+      end)
+    end)
+  end
+
+  def searchForOutput(target, intcodeProgram, noun, verb) do
+    modifiedIntcodeProgram = [hd(intcodeProgram)] ++ [noun, verb] ++ tl(tl(tl(intcodeProgram)))
+    output = hd(process_instructions(modifiedIntcodeProgram))
+    if target == output do
+      IO.inspect([noun, verb, output])
+      IO.inspect(100 * noun + verb)
+    end
+  end
+
 end
+
+D2.searchForOutput(19690720, D2.readInstructionFile('lib/data.txt'))
