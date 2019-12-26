@@ -1,14 +1,11 @@
-defmodule FuelCounterUpper do
+defmodule Aoc2019Day1 do
   @moduledoc """
-  Documentation for FuelCounterUpper.
+  Documentation for Aoc2019Day1.
   """
 
   @doc """
 
   ## Examples
-
-      iex> FuelCounterUpper.tyrannical_fuel_totaller()
-      3323874
 
   """
   def fuel_required(mass) when mass >= 7 do

@@ -1,4 +1,4 @@
-defmodule D2 do
+defmodule Aoc2019Day2 do
   @moduledoc """
   https://adventofcode.com/2019/day/2
 
@@ -141,27 +141,6 @@ defmodule D2 do
 
   ## Examples
 
-      iex> D2.readInstructionFile("test/testdata.txt")
-      "1,90,10,70,1,2,11,0,99,30,40,50"
-
-      iex> D2.createInstructionList("1,90,10,70,1,2,11,0,99,30,40,50")
-      [1, 90, 10, 70, 1, 2, 11, 0, 99, 30, 40, 50]
-
-      iex> D2.insert_value([1, 0, 0, 0, 99], 2, 0)
-      [2, 0, 0, 0, 99]
-
-      iex> D2.shipComputer("1,0,0,0,99")
-      "2,0,0,0,99"
-
-      iex> D2.shipComputer("2,3,0,3,99")
-      "2,3,0,6,99"
-
-      iex> D2.shipComputer("2,4,4,5,99,0")
-      "2,4,4,5,99,9801"
-
-      iex> D2.shipComputer("1,1,1,4,99,5,6,0,99")
-      "30,1,1,4,2,5,6,0,99"
-
   """
   def insert_value(instructions, value, index) do
     Enum.concat([Enum.slice(instructions, 0, index), [value], Enum.slice(instructions, (index + 1)..-1)])
@@ -225,4 +204,4 @@ defmodule D2 do
 
 end
 
-D2.searchForOutput(19690720, D2.readInstructionFile('lib/data.txt'))
+# D2.searchForOutput(19690720, D2.readInstructionFile('lib/data.txt'))
